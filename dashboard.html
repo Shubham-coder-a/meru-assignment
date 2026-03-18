@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestoFlow | Dashboard</title>
+  <meta name="description" content="RestoFlow restaurant accounting dashboard overview.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ── Sidebar ──────────────────────────────── -->
+    <aside class="sidebar">
+      <a href="dashboard.html" class="sidebar-logo">
+        <div class="logo-icon"><i class="fa-solid fa-utensils"></i></div>
+        <span class="logo-text">Resto<span>Flow</span></span>
+      </a>
+
+      <p class="nav-section-label">Main Menu</p>
+      <ul class="nav-links">
+        <li>
+          <a href="dashboard.html" class="nav-item active">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="billing.html" class="nav-item">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <span>Billing</span>
+          </a>
+        </li>
+        <li>
+          <a href="reports.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Sidebar footer with logout -->
+      <div class="sidebar-footer">
+        <ul class="nav-links">
+          <li>
+            <a href="#" class="nav-item" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ── Main Content ──────────────────────────── -->
+    <main class="main-content">
+
+      <header class="top-header">
+        <div>
+          <h2 class="page-title">Dashboard Overview</h2>
+          <p class="page-subtitle">Welcome back — here's what's happening today.</p>
+        </div>
+        <div class="user-profile" id="userProfile">
+          <div class="user-info">
+            <span class="user-name" id="headerUsername">Loading...</span>
+            <span class="user-role">Admin</span>
+          </div>
+          <img
+            id="headerAvatar"
+            class="avatar"
+            src="https://ui-avatars.com/api/?name=Admin&background=ff6b00&color=fff&size=84"
+            alt="Profile Avatar"
+          >
+        </div>
+      </header>
+
+      <div class="content-wrapper fade-in">
+
+        <!-- Stats Grid -->
+        <p class="section-heading">At a Glance</p>
+        <div class="stats-grid">
+
+          <div class="card stat-card border-green" data-tip="Total revenue this month">
+            <div class="stat-icon green">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+            <div class="stat-details">
+              <span class="stat-label">Total Sales</span>
+              <span class="stat-value">$24,560</span>
+            </div>
+            <span class="stat-badge up"><i class="fa-solid fa-caret-up"></i> 12.3%</span>
+          </div>
+
+          <div class="card stat-card border-red" data-tip="Operating costs this month">
+            <div class="stat-icon red">
+              <i class="fa-solid fa-arrow-trend-down"></i>
+            </div>
+            <div class="stat-details">
+              <span class="stat-label">Total Expenses</span>
+              <span class="stat-value">$8,240</span>
+            </div>
+            <span class="stat-badge down"><i class="fa-solid fa-caret-up"></i> 3.1%</span>
+          </div>
+
+          <div class="card stat-card border-orange" data-tip="Sales minus expenses">
+            <div class="stat-icon orange">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <div class="stat-details">
+              <span class="stat-label">Net Profit</span>
+              <span class="stat-value">$16,320</span>
+            </div>
+            <span class="stat-badge up"><i class="fa-solid fa-caret-up"></i> 9.4%</span>
+          </div>
+
+        </div>
+
+        <!-- Charts -->
+        <p class="section-heading">Performance</p>
+        <div class="charts-section">
+
+          <div class="card chart-card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fa-solid fa-chart-area"></i> Revenue This Week</h3>
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <div class="legend-dot orange"></div>
+                  <span>Revenue</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <div class="chart-loader" id="revenueLoader"><div class="spinner"></div></div>
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+
+          <div class="card chart-card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fa-solid fa-star"></i> Top Items</h3>
+            </div>
+            <div class="chart-wrapper">
+              <div class="chart-loader" id="itemsLoader"><div class="spinner"></div></div>
+              <canvas id="itemsChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

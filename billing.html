@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestoFlow | Billing</title>
+  <meta name="description" content="Manage billing and invoices in RestoFlow.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ── Sidebar ──────────────────────────────── -->
+    <aside class="sidebar">
+      <a href="dashboard.html" class="sidebar-logo">
+        <div class="logo-icon"><i class="fa-solid fa-utensils"></i></div>
+        <span class="logo-text">Resto<span>Flow</span></span>
+      </a>
+
+      <p class="nav-section-label">Main Menu</p>
+      <ul class="nav-links">
+        <li>
+          <a href="dashboard.html" class="nav-item">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="billing.html" class="nav-item active">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <span>Billing</span>
+          </a>
+        </li>
+        <li>
+          <a href="reports.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <ul class="nav-links">
+          <li>
+            <a href="#" class="nav-item" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ── Main Content ──────────────────────────── -->
+    <main class="main-content">
+
+      <header class="top-header">
+        <div>
+          <h2 class="page-title">Billing &amp; Invoices</h2>
+          <p class="page-subtitle">Add items and generate client invoices.</p>
+        </div>
+        <div class="user-profile" id="userProfile">
+          <div class="user-info">
+            <span class="user-name" id="headerUsername">Loading...</span>
+            <span class="user-role">Admin</span>
+          </div>
+          <img
+            id="headerAvatar"
+            class="avatar"
+            src="https://ui-avatars.com/api/?name=Admin&background=ff6b00&color=fff&size=84"
+            alt="Profile Avatar"
+          >
+        </div>
+      </header>
+
+      <div class="content-wrapper fade-in">
+
+        <div class="charts-section" style="grid-template-columns: 1fr 2fr;">
+
+          <!-- Add Item Form -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fa-solid fa-plus"></i> Add Item</h3>
+            </div>
+            <form id="billingForm">
+              <div class="form-group">
+                <label class="form-label" for="itemName">Item Name</label>
+                <div class="input-icon-wrapper">
+                  <i class="fa-solid fa-burger"></i>
+                  <input type="text" id="itemName" class="form-control" placeholder="e.g. Truffle Burger" required>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 24px;">
+                <label class="form-label" for="itemAmount">Amount ($)</label>
+                <div class="input-icon-wrapper">
+                  <i class="fa-solid fa-dollar-sign"></i>
+                  <input type="number" id="itemAmount" class="form-control" placeholder="0.00" step="0.01" min="0.01" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%;">
+                <i class="fa-solid fa-plus"></i> Add to Order
+              </button>
+            </form>
+          </div>
+
+          <!-- Items List -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><i class="fa-solid fa-receipt"></i> Current Order</h3>
+              <span class="stat-label">
+                Total: <strong id="totalAmount" style="color: var(--accent); font-size: 16px; font-weight: 800;">$0.00</strong>
+              </span>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th style="width: 80px; text-align: center;">Remove</th>
+                  </tr>
+                </thead>
+                <tbody id="billingTableBody">
+                  <!-- JS injected -->
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+              <button class="btn-primary" id="generateInvoiceBtn">
+                <i class="fa-solid fa-file-invoice"></i> Generate Invoice (AI Auto)
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
