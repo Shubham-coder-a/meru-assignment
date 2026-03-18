@@ -32,9 +32,13 @@ A modern and responsive frontend web application designed to simplify restaurant
 ---
 
 ## 📸 Screenshots
-
-(Add your screenshots here – Login, Dashboard, Reports)
-
+🔐 Login / Signup Page : 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b73ba85e-7f41-4087-bb44-ac94bf740283" />
+📊 Dashboard : 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cad1b5f7-efc4-4d7a-98c3-9b31facb808d" />
+📈 Reports :
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0ef685a1-30df-4090-a792-c21393f21252" />
+ 
 ---
 
 ## 🌐 Live Demo
